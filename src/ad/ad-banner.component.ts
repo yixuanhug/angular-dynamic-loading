@@ -4,6 +4,9 @@ import { AdDirective } from './ad.directive';
 import { AdItem } from './ad-item';
 import { AdComponent } from './ad.component';
 
+import { AdService } from './ad.service';
+import { AdServiceV2 } from './ad.service.v2';
+
 @Component({
   selector: 'app-ad-banner',
   template: `
@@ -11,15 +14,16 @@ import { AdComponent } from './ad.component';
       <h3>Advertisements</h3>
       <ng-template adHost></ng-template>
     </div>
-  `
+  `,
+  providers: [{ provide: AdService, useClass: AdServiceV2 }],
 })
 export class AdBannerComponent implements OnInit, OnDestroy {
   @Input() ads: AdItem[] = [];
 
   currentAdIndex = -1;
 
-  @ViewChild(AdDirective, {static: true}) adHost!: AdDirective;
-  interval: number|undefined;
+  @ViewChild(AdDirective, { static: true }) adHost!: AdDirective;
+  interval: number | undefined;
 
   ngOnInit() {
     this.loadComponent();
@@ -37,7 +41,9 @@ export class AdBannerComponent implements OnInit, OnDestroy {
     const viewContainerRef = this.adHost.viewContainerRef;
     viewContainerRef.clear();
 
-    const componentRef = viewContainerRef.createComponent<AdComponent>(adItem.component);
+    const componentRef = viewContainerRef.createComponent<AdComponent>(
+      adItem.component
+    );
     componentRef.instance.data = adItem.data;
   }
 
@@ -47,7 +53,6 @@ export class AdBannerComponent implements OnInit, OnDestroy {
     }, 3000);
   }
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.
