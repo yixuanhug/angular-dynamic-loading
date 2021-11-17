@@ -7,7 +7,7 @@ import { AdService } from './ad.service';
 
 @NgModule({
   imports: [BrowserModule],
-  providers: [AdService],
+  providers: [{ provide: AdService, useClass: AdService }],
   declarations: [AdBannerComponent, HeroJobAdComponent, AdDirective],
   entryComponents: [HeroJobAdComponent],
   exports: [AdBannerComponent],
