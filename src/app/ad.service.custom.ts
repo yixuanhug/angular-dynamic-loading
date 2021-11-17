@@ -11,13 +11,13 @@ export class AdServiceCustom extends AdService {
     let ads = super.getAds();
     ads.push(
       new AdItem(HeroProfileComponent, {
-        name: 'Thomas',
+        name: 'Clark Kent',
         bio: 'Superman!',
       })
     );
     ads.push(
       new AdItem(HeroProfileComponent, {
-        name: 'Rachel',
+        name: 'Peter Parker',
         bio: 'Spiderman!',
       })
     );
