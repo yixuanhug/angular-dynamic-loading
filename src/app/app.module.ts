@@ -8,7 +8,7 @@ import { AdServiceCustom } from './ad.service.custom';
 
 @NgModule({
   imports: [BrowserModule, AdModule],
-  providers: [{ provide: AdService, useClass: AdServiceCustom }],
+  // providers: [{ provide: AdService, useClass: AdServiceCustom }],
   declarations: [AppComponent, HeroProfileComponent],
   bootstrap: [AppComponent],
 })
