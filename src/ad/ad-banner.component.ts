@@ -18,7 +18,9 @@ import { AdServiceV2 } from './ad.service.v2';
   providers: [{ provide: AdService, useClass: AdServiceV2 }],
 })
 export class AdBannerComponent implements OnInit, OnDestroy {
-  @Input() ads: AdItem[] = [];
+  ads: AdItem[] = [];
+
+  constructor(private adService: AdService) {}
 
   currentAdIndex = -1;
 
@@ -26,6 +28,7 @@ export class AdBannerComponent implements OnInit, OnDestroy {
   interval: number | undefined;
 
   ngOnInit() {
+    this.ads = this.adService.getAds();
     this.loadComponent();
     this.getAds();
   }
