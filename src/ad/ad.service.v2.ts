@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { HeroJobAdComponent } from './hero-job-ad.component';
 import { AdItem } from './ad-item';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AdServiceV2 {
   getAds() {
     return [
