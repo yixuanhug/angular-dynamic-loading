@@ -2,21 +2,26 @@ import { Injectable } from '@angular/core';
 
 import { AdItem } from '../ad/ad-item';
 import { AdService } from '../ad/ad.service';
-import {HeroProfileComponent} from './hero-profile.component';
+import { HeroProfileComponent } from './hero-profile.component';
 @Injectable({
   providedIn: 'root',
 })
 export class AdServiceCustom extends AdService {
   getAds() {
-    return super.getAds().push(
+    let ads = super.getAds();
+    ads.push(
       new AdItem(HeroProfileComponent, {
         name: 'Thomas',
         bio: 'Superman!',
-      }).push(
+      })
+    );
+    ads.push(
       new AdItem(HeroProfileComponent, {
         name: 'Rachel',
         bio: 'Spiderman!',
-      });
+      })
+    );
+    return ads;
   }
 }
 
