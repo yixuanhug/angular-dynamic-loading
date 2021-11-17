@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { AdItem } from '../ad/ad-item';
 import { HeroProfileComponent } from './hero-profile.component';
+import { HeroProfileComponent } from './hero-profile.component';
 @Injectable({
   providedIn: 'root',
 })
