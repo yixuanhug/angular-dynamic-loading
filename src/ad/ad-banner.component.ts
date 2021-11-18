@@ -13,6 +13,7 @@ import { AdServiceV2 } from './ad.service.v2';
     <div class="ad-banner-example">
       <h3>Advertisements</h3>
       <ng-template adHost></ng-template>
+      <ng-container *ngTemplateOutlet="adHost;"></ngcontainer>
     </div>
   `,
 })
