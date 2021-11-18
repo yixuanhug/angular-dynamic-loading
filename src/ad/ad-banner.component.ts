@@ -15,7 +15,6 @@ import { AdServiceV2 } from './ad.service.v2';
       <ng-template adHost></ng-template>
     </div>
   `,
-  providers: [{ provide: AdService, useClass: AdServiceV2 }],
 })
 export class AdBannerComponent implements OnInit, OnDestroy {
   ads: AdItem[] = [];
